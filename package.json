@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "pinia": "^2.0.29",
     "vue": "^3.2.45"
   },
   "devDependencies": {
