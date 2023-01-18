@@ -33,6 +33,6 @@
   "lint-staged": {
     "**/*.{js,vue,ts}": [
       "eslint --ext .vue,.ts,.js --ignore-path .gitignore --fix src"
-    ],
+    ]
   }
 }
