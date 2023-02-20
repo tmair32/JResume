@@ -17,6 +17,9 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.2",
+    "@babylonjs/core": "^5.47.0",
+    "@babylonjs/gui": "^5.47.0",
+    "@babylonjs/loaders": "^5.47.0",
     "@iconify/json": "^2.2.24",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
