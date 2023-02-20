@@ -2,6 +2,9 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.35.2
+  '@babylonjs/core': ^5.47.0
+  '@babylonjs/gui': ^5.47.0
+  '@babylonjs/loaders': ^5.47.0
   '@iconify/json': ^2.2.24
   '@typescript-eslint/eslint-plugin': ^5.52.0
   '@typescript-eslint/parser': ^5.52.0
@@ -31,6 +34,9 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config': 0.35.2_7kw3g6rralp5ps6mg3uyzz6azm
+  '@babylonjs/core': 5.47.0
+  '@babylonjs/gui': 5.47.0_@babylonjs+core@5.47.0
+  '@babylonjs/loaders': 5.47.0_zs6cw4wcuxf37gmhtwnicq4w7m
   '@iconify/json': 2.2.24
   '@typescript-eslint/eslint-plugin': 5.52.0_6cfvjsbua5ptj65675bqcn6oza
   '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
@@ -373,6 +379,28 @@ packages:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+
+  /@babylonjs/core/5.47.0:
+    resolution: {integrity: sha512-7RXNZI6IulXVFMFEcWH+Sr3ncQZ4JSu1Rer6voSqzPoRYuBhShwgrq9ntnu9OfXXpa+564fJrNMgj7fD/xWoow==}
+    dev: true
+
+  /@babylonjs/gui/5.47.0_@babylonjs+core@5.47.0:
+    resolution: {integrity: sha512-SnOtRQm2Zgz3vKS2+tpITykjFzrrRK4zZL5Rjof1uAHoiuerU45lEqEPSRpWvTRr8eoVkb9RO/hbA0gukfiODQ==}
+    peerDependencies:
+      '@babylonjs/core': ^5.22.0
+    dependencies:
+      '@babylonjs/core': 5.47.0
+    dev: true
+
+  /@babylonjs/loaders/5.47.0_zs6cw4wcuxf37gmhtwnicq4w7m:
+    resolution: {integrity: sha512-yceepCwsyCnjvfjUAiiJUjXa8A8FB7MM1XWvyTsm8kuzQ/b05y9JQoZ+/7sYM2BdONOaEiz/4GYnUYJVPg8eZw==}
+    peerDependencies:
+      '@babylonjs/core': ^5.22.0
+      babylonjs-gltf2interface: ^5.22.0
+    dependencies:
+      '@babylonjs/core': 5.47.0
+      babylonjs-gltf2interface: 5.47.0
+    dev: true
 
   /@esbuild/android-arm/0.16.17:
     resolution: {integrity: sha512-N9x1CMXVhtWEAMS7pNNONyA14f71VPQN9Cnavj1XQh6T7bskqiLLrSca4O0Vr8Wdcga943eThxnVp3JLnBMYtw==}
@@ -1380,6 +1408,10 @@ packages:
   /available-typed-arrays/1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
+    dev: true
+
+  /babylonjs-gltf2interface/5.47.0:
+    resolution: {integrity: sha512-yUPaEq2aFhTnh4P7r43IpYbCd+2bp+uMevDCbfVAaHTTITlXLNde2AU+7DUXJcG6aRJxxIsPN+r4x8O7IdF0+w==}
     dev: true
 
   /balanced-match/1.0.2:
