@@ -1,7 +1,11 @@
 import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 import eslintPlugin from 'vite-plugin-eslint'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import Unocss from 'unocss/vite'
 import Pages from 'vite-plugin-pages'
 
@@ -33,7 +37,35 @@ export default defineConfig({
   },
   mode: process.env.MODE || process.env.NODE_ENV || 'development',
   plugins: [
+    AutoImport({
+      dirs: ['src/**/stores'],
+      dts: 'src/auto-imports.d.ts',
+      imports: [
+        'vue',
+        'vue-router',
+        'pinia',
+      ],
+    }),
+    Components({
+      deep: true,
+      dirs: ['src/components', 'src/pages'],
+      dts: true,
+      extensions: ['vue', 'ts', 'tsx'],
+      include: [/\.vue$/, /\.vue\?vue/],
+      resolvers: [
+        IconsResolver({ componentPrefix: '' }),
+      ],
+      types: [
+        {
+          from: 'vue-router',
+          names: ['RouterLink', 'RouterView'],
+        },
+      ],
+    }),
     eslintPlugin(),
+    Icons({
+      autoInstall: true,
+    }),
     Pages({
       dirs: [
         {
@@ -47,6 +79,9 @@ export default defineConfig({
     Unocss(),
     vue(),
   ],
+  optimizeDeps: {
+    include: ['vue', 'vue-router', 'pinia'],
+  },
   resolve: {
     alias: {
       '~/': `${resolve(__dirname, 'src')}/`,
