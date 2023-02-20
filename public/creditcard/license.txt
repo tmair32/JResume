@@ -1,0 +1,11 @@
+Model Information:
+* title:	Plastic Credit Card
+* source:	https://sketchfab.com/3d-models/plastic-credit-card-4056fbcafe5e44e5810c84a2a836f9c1
+* author:	Maksym Nekleva (https://sketchfab.com/maksym.nekleva)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Plastic Credit Card" (https://sketchfab.com/3d-models/plastic-credit-card-4056fbcafe5e44e5810c84a2a836f9c1) by Maksym Nekleva (https://sketchfab.com/maksym.nekleva) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
