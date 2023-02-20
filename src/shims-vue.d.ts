@@ -6,6 +6,12 @@ declare module "*.vue" {
   export default component;
 }
 
+declare module "pinia" {
+  export interface PiniaCustomProperties {
+    router: Router;
+  }
+}
+
 type Prefix = "un-";
 declare module "@vue/runtime-dom" {
   interface HTMLAttributes

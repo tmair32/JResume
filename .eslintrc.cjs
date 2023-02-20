@@ -1,5 +1,6 @@
 module.exports = {
   extends: '@antfu',
+  root: true,
   rules: {
     'no-console': process.env.MODE === 'production' ? 'error' : 'off',
     'sort-keys': 'off',
