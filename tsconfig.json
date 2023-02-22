@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "babylon": ["./src/babylon/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
