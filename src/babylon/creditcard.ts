@@ -1,30 +1,37 @@
-const drawCardNumber = (mesh: InstanceType<typeof AbstractMesh>) => {
-  const font = 'bold 100px serif'
-  const cardNumber = '1234 5678 9012 3456'
-  const textureResolution = 512
-  const textureGround = new DynamicTexture(
-    'texture',
-    textureResolution,
+const drawCardLine = (mesh: InstanceType<typeof AbstractMesh>) => {
+  const boundingVector = mesh.getHierarchyBoundingVectors()
+  const size = {
+    x: boundingVector.max.x - boundingVector.min.x,
+    y: boundingVector.max.y - boundingVector.min.y,
+    z: boundingVector.max.z - boundingVector.min.z,
+  }
+
+  const cardLineMaterial = new StandardMaterial('cardLineMaterial', mesh.getScene())
+  cardLineMaterial.diffuseColor = new Color3(1, 1, 1)
+  cardLineMaterial.emissiveColor = new Color3(1, 1, 1)
+  cardLineMaterial.specularColor = new Color3(1, 1, 1)
+  cardLineMaterial.ambientColor = new Color3(1, 1, 1)
+
+  const cardLinePlane = MeshBuilder.CreatePlane(
+    'cardLinePlane',
+    {
+      width: size.x,
+      height: size.y / 6,
+    },
     mesh.getScene(),
-    true,
   )
 
-  textureGround.hasAlpha = true
-  textureGround.uAng = Math.PI
+  cardLinePlane.material = cardLineMaterial
 
-  textureGround.drawText(
-    cardNumber,
-    200,
-    300,
-    font,
-    'black',
-    'white',
-    true,
-    true,
+  cardLinePlane.position = new Vector3(
+    boundingVector.min.x + size.x / 2,
+    boundingVector.min.y + size.y / 1.35,
+    boundingVector.min.z - 0.01,
   )
+}
 
-  const material = new StandardMaterial('texture', mesh.getScene())
-  material.diffuseTexture = textureGround
+const drawCVC = (mesh: InstanceType<typeof AbstractMesh>) => {
+
 }
 
 export const drawCreditCard = (scene: InstanceType<typeof Scene>) => {
@@ -36,7 +43,8 @@ export const drawCreditCard = (scene: InstanceType<typeof Scene>) => {
     scene,
     (meshes) => {
       const card = meshes[1]
-      // drawCardNumber(card)
+      drawCardLine(card)
+      drawCVC(card)
     },
   )
 }

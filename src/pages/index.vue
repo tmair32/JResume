@@ -16,14 +16,26 @@ const createScene = (canvas: HTMLCanvasElement) => {
 const createCamera = (scene: InstanceType<typeof Scene>) => {
   const camera = new ArcRotateCamera(
     'camera',
-    Math.PI / 3,
+    -Math.PI / 1.5,
     Math.PI / 2.5,
     25,
     new Vector3(0, 1.3, 0),
     scene,
   )
   camera.attachControl(true)
+
+  const autoRotation = new AutoRotationBehavior()
+  autoRotation.idleRotationSpeed = 0.8
+  autoRotation.idleRotationWaitTime = 3000
+  camera.addBehavior(
+    autoRotation,
+  )
   camera.useBouncingBehavior = true
+
+  camera.lowerRadiusLimit = 15
+  camera.upperRadiusLimit = 30
+  camera.lowerBetaLimit = Math.PI / 2.5
+  camera.upperBetaLimit = Math.PI / 1.5
 }
 
 onMounted(() => {
@@ -36,8 +48,6 @@ onMounted(() => {
 
     scene.createDefaultEnvironment({
       createSkybox: false,
-      enableGroundMirror: false,
-      groundYBias: 0,
     })
     scene.clearColor = new Color4(0, 0, 0, 0)
   }
