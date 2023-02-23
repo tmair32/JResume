@@ -19,16 +19,8 @@ const createCamera = (scene: InstanceType<typeof Scene>) => {
     -Math.PI / 1.5,
     Math.PI / 2.5,
     25,
-    new Vector3(0, 1.3, 0),
+    new Vector3(0, 0, 0),
     scene,
-  )
-  camera.attachControl(true)
-
-  const autoRotation = new AutoRotationBehavior()
-  autoRotation.idleRotationSpeed = 0.8
-  autoRotation.idleRotationWaitTime = 3000
-  camera.addBehavior(
-    autoRotation,
   )
   camera.useBouncingBehavior = true
 
@@ -48,6 +40,7 @@ onMounted(() => {
 
     scene.createDefaultEnvironment({
       createSkybox: false,
+      createGround: false,
     })
     scene.clearColor = new Color4(0, 0, 0, 0)
   }
