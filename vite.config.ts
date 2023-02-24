@@ -48,6 +48,7 @@ export default defineConfig({
         {
           '@babylonjs/core': [
             'AbstractMesh',
+            'ActionManager',
             'ArcRotateCamera',
             'AutoRotationBehavior',
             'Axis',
@@ -56,6 +57,7 @@ export default defineConfig({
             'DynamicTexture',
             'Engine',
             'HemisphericLight',
+            'InterpolateValueAction',
             'Mesh',
             'MeshBuilder',
             'PointLight',

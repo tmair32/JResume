@@ -5,6 +5,7 @@
 export {}
 declare global {
   const AbstractMesh: typeof import('@babylonjs/core')['AbstractMesh']
+  const ActionManager: typeof import('@babylonjs/core')['ActionManager']
   const ArcRotateCamera: typeof import('@babylonjs/core')['ArcRotateCamera']
   const AutoRotationBehavior: typeof import('@babylonjs/core')['AutoRotationBehavior']
   const Axis: typeof import('@babylonjs/core')['Axis']
@@ -14,6 +15,7 @@ declare global {
   const EffectScope: typeof import('vue')['EffectScope']
   const Engine: typeof import('@babylonjs/core')['Engine']
   const HemisphericLight: typeof import('@babylonjs/core')['HemisphericLight']
+  const InterpolateValueAction: typeof import('@babylonjs/core')['InterpolateValueAction']
   const Mesh: typeof import('@babylonjs/core')['Mesh']
   const MeshBuilder: typeof import('@babylonjs/core')['MeshBuilder']
   const PointLight: typeof import('@babylonjs/core')['PointLight']

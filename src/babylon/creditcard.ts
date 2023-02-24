@@ -6,6 +6,15 @@ const rotateCard = (mesh: InstanceType<typeof AbstractMesh>) => {
 
   scene.registerAfterRender(() => {
     mesh.rotateAround(new Vector3(0, 0, 16), Axis.Z, Math.PI / 100)
+    // mesh.actionManager?.registerAction(
+    //   new InterpolateValueAction(
+    //     ActionManager.OnPointerOverTrigger,
+    //     mesh,
+    //     'visibility',
+    //     0.1,
+    //     1000,
+    //   ),
+    // )
   })
 }
 
@@ -65,16 +74,77 @@ const drawLineCat = (mesh: InstanceType<typeof AbstractMesh>) => {
     mesh.getScene(),
   )
   catPlane.material = catMaterial
-  catPlane.position = new Vector3(1.3, -1, -0.06)
+  catPlane.position = new Vector3(1.8, -2.4, -0.06)
   catPlane.rotation = new Vector3(0, 0, Math.PI / 18)
 
   catPlane.setParent(mesh)
   mesh.addChild(catPlane)
 }
 
-// const drawCVC = (mesh: InstanceType<typeof AbstractMesh>) => {
+const drawChip = (mesh: InstanceType<typeof AbstractMesh>) => {
+  const chipMaterial = new StandardMaterial('chipMaterial')
+  chipMaterial.diffuseTexture = new Texture(
+    `${import.meta.env.BASE_URL}Chip.png`,
+  )
+  chipMaterial.diffuseTexture.hasAlpha = true
 
-// }
+  const chipPlane = MeshBuilder.CreatePlane(
+    'chipPlane',
+    {
+      width: 2,
+      height: 2,
+    },
+    mesh.getScene(),
+  )
+  chipPlane.material = chipMaterial
+  chipPlane.position = new Vector3(0, 2.3, -0.04)
+  chipPlane.rotation = new Vector3(0, 0, Math.PI / 1.8)
+
+  chipPlane.setParent(mesh)
+  mesh.addChild(chipPlane)
+}
+
+const drawText = (mesh: InstanceType<typeof AbstractMesh>) => {
+  const textTexture = new DynamicTexture(
+    'textTexture',
+    {
+      width: 240,
+      height: 60,
+    },
+  )
+  const textTextureCtx = textTexture.getContext()
+  const textWidth = textTextureCtx.measureText('Amor Fati').width
+  const ratio = textWidth / 12
+  const fontSize = Math.floor(180 / (ratio * 1))
+
+  const textMaterial = new StandardMaterial('textMaterial')
+  textMaterial.diffuseTexture = textTexture
+  textMaterial.diffuseTexture.hasAlpha = true
+
+  textTexture.drawText(
+    'Amor Fati',
+    null,
+    null,
+    `bold ${fontSize}px Zeyada`,
+    'black',
+    'transparent',
+  )
+
+  const textPlane = MeshBuilder.CreatePlane(
+    'textPlane',
+    {
+      width: 4,
+      height: 1,
+    },
+    mesh.getScene(),
+  )
+  textPlane.material = textMaterial
+  textPlane.position = new Vector3(-1.5, 0.6, -0.04)
+  textPlane.rotation = new Vector3(0, 0, -Math.PI / 2.3)
+
+  textPlane.setParent(mesh)
+  mesh.addChild(textPlane)
+}
 
 export const drawCreditCard = (scene: InstanceType<typeof Scene>) => {
   SceneLoader.ImportMesh(
@@ -87,6 +157,8 @@ export const drawCreditCard = (scene: InstanceType<typeof Scene>) => {
       const card = meshes[1]
       rotateCard(card)
       drawLineCat(card)
+      drawChip(card)
+      drawText(card)
     },
   )
 }

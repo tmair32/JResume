@@ -22,6 +22,7 @@ const createCamera = (scene: InstanceType<typeof Scene>) => {
     new Vector3(0, 0, 0),
     scene,
   )
+  // camera.attachControl(true)
   camera.useBouncingBehavior = true
 
   camera.lowerRadiusLimit = 15
