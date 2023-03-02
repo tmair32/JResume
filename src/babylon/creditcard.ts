@@ -4,17 +4,21 @@ const rotateCard = (mesh: InstanceType<typeof AbstractMesh>) => {
 
   const scene = mesh.getScene()
 
+  const rotateSpeed = ref(0.03)
+
   scene.registerAfterRender(() => {
-    mesh.rotateAround(new Vector3(0, 0, 16), Axis.Z, Math.PI / 100)
-    // mesh.actionManager?.registerAction(
-    //   new InterpolateValueAction(
-    //     ActionManager.OnPointerOverTrigger,
-    //     mesh,
-    //     'visibility',
-    //     0.1,
-    //     1000,
-    //   ),
-    // )
+    mesh.rotateAround(new Vector3(0, 0, 16), Axis.Z, rotateSpeed.value)
+    mesh.actionManager = new ActionManager(scene)
+    mesh.actionManager.registerAction(
+      new ExecuteCodeAction(
+        {
+          trigger: ActionManager.OnPickTrigger,
+        },
+        () => {
+          rotateSpeed.value = rotateSpeed.value === 0 ? 0.03 : 0
+        },
+      ),
+    )
   })
 }
 
