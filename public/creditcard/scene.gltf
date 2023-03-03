@@ -122,13 +122,13 @@
   ],
   "images": [
     {
-      "uri": "textures/Scene_-_Root_baseColor.png"
+      "uri": "textures/Albedo.png"
     },
     {
-      "uri": "textures/Scene_-_Root_metallicRoughness.png"
+      "uri": "textures/Roughness.png"
     },
     {
-      "uri": "textures/Scene_-_Root_normal.png"
+      "uri": "textures/Normal.png"
     }
   ],
   "materials": [

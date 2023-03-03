@@ -11,6 +11,7 @@ import Pages from 'vite-plugin-pages'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  assetsInclude: ['**/*.gltf'],
   base: '/',
   build: {
     outDir: 'dist',
@@ -44,6 +45,30 @@ export default defineConfig({
         'vue',
         'vue-router',
         'pinia',
+        {
+          '@babylonjs/core': [
+            'AbstractMesh',
+            'ActionManager',
+            'ArcRotateCamera',
+            'AutoRotationBehavior',
+            'Axis',
+            'Color3',
+            'Color4',
+            'DynamicTexture',
+            'Engine',
+            'ExecuteCodeAction',
+            'HemisphericLight',
+            'Mesh',
+            'MeshBuilder',
+            'PointLight',
+            'Scene',
+            'SceneLoader',
+            'StandardMaterial',
+            'Texture',
+            'Vector3',
+            'Vector4',
+          ],
+        },
       ],
     }),
     Components({
@@ -70,7 +95,7 @@ export default defineConfig({
       dirs: [
         {
           dir: 'src/pages',
-          baseRoute: '',
+          baseRoute: '/',
         },
       ],
       exclude: ['**/components/*.{vue,ts,tsx}'],
